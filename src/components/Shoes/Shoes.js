@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { add, multiply } from '../../utilities/calculate';
+import { add, multiply } from '../../utilities/Calculate';
 
 const Shoes = () => {
   const first = 13;

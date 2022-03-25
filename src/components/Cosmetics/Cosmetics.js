@@ -1,8 +1,12 @@
 
 import React, { useEffect, useState } from 'react';
+import { getTotal } from '../../utilities/Calculate';
 // import { add } from '../../utilities/calculate';
 //import add from '../../utilities/calculate';
 import Cosmetic from '../Cosmetic/Cosmetic';
+
+
+
 
 const Cosmetics = () => {
 const [cosmetics, setCosmetics] = useState([]);
@@ -12,6 +16,7 @@ useEffect( () =>{
     .then(data => setCosmetics(data))
 }, [])
 
+const total = getTotal(cosmetics);
 
 // const cosmetics = [
 //     {id: 1, name: 'Alta', price: 100},
@@ -23,10 +28,12 @@ useEffect( () =>{
 
 //  const first = 55;
 //  const second = 66;
-//  const total = add(first, second);   
+//  const total = add(first, second);
+
     return (
         <div>
             <h1>Welcome to my Cosmetics Store</h1>
+            <p>Money needed: {total}</p>
             {
               cosmetics.map(cosmetic => <Cosmetic key={cosmetic.id} cosmetic ={cosmetic}></Cosmetic>)  
             }
